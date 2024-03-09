@@ -1,0 +1,80 @@
+  0%|                                                                                                                                                       | 0/1179 [00:00<?, ?it/s]/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/dylanz/group_project/eecs-545-project/fine-tune-phi-qlora-dro.py", line 98, in <module>
+    dpo_trainer.train()
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 1537, in train
+    return inner_training_loop(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 1854, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 2735, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/trl/trainer/dpo_trainer.py", line 1077, in compute_loss
+    loss, metrics = self.get_batch_loss_metrics(model, inputs, train_eval="train")
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/trl/trainer/dpo_trainer.py", line 1018, in get_batch_loss_metrics
+    ) = self.concatenated_forward(model, batch)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/trl/trainer/dpo_trainer.py", line 981, in concatenated_forward
+    all_logits = model(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/utils/operations.py", line 817, in forward
+    return model_forward(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/utils/operations.py", line 805, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/peft/peft_model.py", line 1091, in forward
+    return self.base_model(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 160, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/dylanz/.cache/huggingface/modules/transformers_modules/microsoft/phi-2/b10c3eba545ad279e7208ee3a5d644566f001670/modeling_phi.py", line 1049, in forward
+    outputs = self.model(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/dylanz/.cache/huggingface/modules/transformers_modules/microsoft/phi-2/b10c3eba545ad279e7208ee3a5d644566f001670/modeling_phi.py", line 919, in forward
+    layer_outputs = self._gradient_checkpointing_func(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+    return fn(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 451, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/autograd/function.py", line 539, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 230, in forward
+    outputs = run_function(*args)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/dylanz/.cache/huggingface/modules/transformers_modules/microsoft/phi-2/b10c3eba545ad279e7208ee3a5d644566f001670/modeling_phi.py", line 669, in forward
+    attn_outputs, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/amp/autocast_mode.py", line 16, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/home/dylanz/.cache/huggingface/modules/transformers_modules/microsoft/phi-2/b10c3eba545ad279e7208ee3a5d644566f001670/modeling_phi.py", line 366, in forward
+    attn_weights = torch.matmul(
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.06 GiB. GPU 0 has a total capacty of 8.00 GiB of which 0 bytes is free. Of the allocated memory 5.71 GiB is allocated by PyTorch, and 1.23 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

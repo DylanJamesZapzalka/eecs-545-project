@@ -1,0 +1,220 @@
+2024-03-09 16:58:48,816 INFO    StreamThr :464926 [internal.py:wandb_internal():86] W&B internal server running at pid: 464926, started at: 2024-03-09 16:58:48.815842
+2024-03-09 16:58:48,816 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status
+2024-03-09 16:58:48,818 INFO    WriterThread:464926 [datastore.py:open_for_write():87] open: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/run-zfvjgssd.wandb
+2024-03-09 16:58:48,818 DEBUG   SenderThread:464926 [sender.py:send():378] send: header
+2024-03-09 16:58:48,818 DEBUG   SenderThread:464926 [sender.py:send():378] send: run
+2024-03-09 16:58:49,658 INFO    SenderThread:464926 [dir_watcher.py:__init__():211] watching files in: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files
+2024-03-09 16:58:49,658 INFO    SenderThread:464926 [sender.py:_start_run_threads():1099] run started: zfvjgssd with start time 1710021528.815795
+2024-03-09 16:58:49,659 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: check_version
+2024-03-09 16:58:49,659 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: check_version
+2024-03-09 16:58:49,911 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: run_start
+2024-03-09 16:58:49,919 DEBUG   HandlerThread:464926 [system_info.py:__init__():26] System info init
+2024-03-09 16:58:49,919 DEBUG   HandlerThread:464926 [system_info.py:__init__():41] System info init done
+2024-03-09 16:58:49,919 INFO    HandlerThread:464926 [system_monitor.py:start():194] Starting system monitor
+2024-03-09 16:58:49,919 INFO    SystemMonitor:464926 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-09 16:58:49,919 INFO    HandlerThread:464926 [system_monitor.py:probe():214] Collecting system info
+2024-03-09 16:58:49,920 INFO    SystemMonitor:464926 [interfaces.py:start():190] Started cpu monitoring
+2024-03-09 16:58:49,921 INFO    SystemMonitor:464926 [interfaces.py:start():190] Started disk monitoring
+2024-03-09 16:58:49,921 INFO    SystemMonitor:464926 [interfaces.py:start():190] Started gpu monitoring
+2024-03-09 16:58:49,922 INFO    SystemMonitor:464926 [interfaces.py:start():190] Started memory monitoring
+2024-03-09 16:58:49,922 INFO    SystemMonitor:464926 [interfaces.py:start():190] Started network monitoring
+2024-03-09 16:58:49,938 DEBUG   HandlerThread:464926 [system_info.py:probe():150] Probing system
+2024-03-09 16:58:49,982 DEBUG   HandlerThread:464926 [system_info.py:_probe_git():135] Probing git
+2024-03-09 16:58:49,985 DEBUG   HandlerThread:464926 [system_info.py:_probe_git():143] Probing git done
+2024-03-09 16:58:49,985 DEBUG   HandlerThread:464926 [system_info.py:probe():198] Probing system done
+2024-03-09 16:58:49,985 DEBUG   HandlerThread:464926 [system_monitor.py:probe():223] {'os': 'Linux-5.15.146.1-microsoft-standard-WSL2-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2024-03-09T21:58:49.938319', 'startedAt': '2024-03-09T21:58:48.811757', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/dylanz/group_project/eecs-545-project/fine-tune-phi-qlora-dro.py', 'codePathLocal': 'fine-tune-phi-qlora-dro.py', 'codePath': 'fine-tune-phi-qlora-dro.py', 'git': {'remote': 'git@github.com:DylanJamesZapzalka/eecs-545-project.git', 'commit': '566762d85255ce7fce2a29cc0cfab3dbe7372a5c'}, 'email': 'dylanjameszapzalka@hotmail.com', 'root': '/home/dylanz/group_project/eecs-545-project', 'host': 'DylanPC', 'username': 'dylanz', 'executable': '/home/dylanz/anaconda3/envs/pt-2.0.1/bin/python', 'cpu_count': 10, 'cpu_count_logical': 20, 'cpu_freq': {'current': 3494.3969999999986, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}, {'current': 3494.397, 'min': 0.0, 'max': 0.0}], 'disk': {'/': {'total': 1006.853931427002, 'used': 549.3615036010742}}, 'gpu': 'NVIDIA GeForce RTX 3060 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Ti', 'memory_total': 8589934592}], 'memory': {'total': 15.494583129882812}}
+2024-03-09 16:58:49,985 INFO    HandlerThread:464926 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-09 16:58:49,985 INFO    HandlerThread:464926 [system_monitor.py:probe():227] Publishing system info
+2024-03-09 16:58:49,985 DEBUG   HandlerThread:464926 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-03-09 16:58:50,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/conda-environment.yaml
+2024-03-09 16:58:51,988 DEBUG   HandlerThread:464926 [system_info.py:_save_conda():219] Saving conda packages done
+2024-03-09 16:58:51,989 INFO    HandlerThread:464926 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-09 16:58:51,991 DEBUG   SenderThread:464926 [sender.py:send():378] send: files
+2024-03-09 16:58:51,991 INFO    SenderThread:464926 [sender.py:_save_file():1365] saving file wandb-metadata.json with policy now
+2024-03-09 16:58:52,050 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-09 16:58:52,050 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: python_packages
+2024-03-09 16:58:52,051 DEBUG   SenderThread:464926 [sender.py:send():378] send: telemetry
+2024-03-09 16:58:52,054 DEBUG   SenderThread:464926 [sender.py:send():378] send: config
+2024-03-09 16:58:52,054 DEBUG   SenderThread:464926 [sender.py:send():378] send: metric
+2024-03-09 16:58:52,054 DEBUG   SenderThread:464926 [sender.py:send():378] send: telemetry
+2024-03-09 16:58:52,054 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-09 16:58:52,054 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-09 16:58:52,054 DEBUG   SenderThread:464926 [sender.py:send():378] send: metric
+2024-03-09 16:58:52,054 WARNING SenderThread:464926 [sender.py:send_metric():1316] Seen metric with glob (shouldn't happen)
+2024-03-09 16:58:52,055 DEBUG   SenderThread:464926 [sender.py:send():378] send: telemetry
+2024-03-09 16:58:52,055 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: stop_status
+2024-03-09 16:58:52,365 INFO    wandb-upload_0:464926 [upload_job.py:push():131] Uploaded file /tmp/tmpc5ud2mwuwandb/1fy2gmp6-wandb-metadata.json
+2024-03-09 16:58:52,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/conda-environment.yaml
+2024-03-09 16:58:52,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/requirements.txt
+2024-03-09 16:58:52,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/wandb-metadata.json
+2024-03-09 16:58:53,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:58:54,101 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:58:55,659 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:58:57,660 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:58:59,658 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:58:59,660 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:01,660 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:03,661 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:05,218 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:07,051 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-09 16:59:07,051 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-09 16:59:07,051 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: stop_status
+2024-03-09 16:59:07,662 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:11,000 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:11,662 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:15,663 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:16,397 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:17,664 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:21,665 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:22,008 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:22,051 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-09 16:59:22,051 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-09 16:59:22,109 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: stop_status
+2024-03-09 16:59:22,665 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/config.yaml
+2024-03-09 16:59:25,665 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:27,802 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:28,554 DEBUG   SenderThread:464926 [sender.py:send():378] send: exit
+2024-03-09 16:59:28,554 INFO    SenderThread:464926 [sender.py:send_exit():585] handling exit code: 255
+2024-03-09 16:59:28,554 INFO    SenderThread:464926 [sender.py:send_exit():587] handling runtime: 38
+2024-03-09 16:59:28,554 INFO    SenderThread:464926 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-03-09 16:59:28,554 INFO    SenderThread:464926 [sender.py:send_exit():593] send defer
+2024-03-09 16:59:28,555 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,555 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 0
+2024-03-09 16:59:28,555 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,555 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-03-09 16:59:28,555 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 1
+2024-03-09 16:59:28,555 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,555 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 1
+2024-03-09 16:59:28,556 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,556 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-03-09 16:59:28,556 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 2
+2024-03-09 16:59:28,556 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,556 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 2
+2024-03-09 16:59:28,556 INFO    HandlerThread:464926 [system_monitor.py:finish():203] Stopping system monitor
+2024-03-09 16:59:28,556 DEBUG   SystemMonitor:464926 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-09 16:59:28,556 INFO    HandlerThread:464926 [interfaces.py:finish():202] Joined cpu monitor
+2024-03-09 16:59:28,556 DEBUG   SystemMonitor:464926 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-03-09 16:59:28,556 INFO    HandlerThread:464926 [interfaces.py:finish():202] Joined disk monitor
+2024-03-09 16:59:28,557 DEBUG   SystemMonitor:464926 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-03-09 16:59:28,563 INFO    HandlerThread:464926 [interfaces.py:finish():202] Joined gpu monitor
+2024-03-09 16:59:28,563 INFO    HandlerThread:464926 [interfaces.py:finish():202] Joined memory monitor
+2024-03-09 16:59:28,563 INFO    HandlerThread:464926 [interfaces.py:finish():202] Joined network monitor
+2024-03-09 16:59:28,564 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 3
+2024-03-09 16:59:28,564 DEBUG   SenderThread:464926 [sender.py:send():378] send: stats
+2024-03-09 16:59:28,564 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,564 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 3
+2024-03-09 16:59:28,564 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 4
+2024-03-09 16:59:28,564 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,564 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 4
+2024-03-09 16:59:28,564 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-03-09 16:59:28,564 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 5
+2024-03-09 16:59:28,564 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,564 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 5
+2024-03-09 16:59:28,565 DEBUG   SenderThread:464926 [sender.py:send():378] send: summary
+2024-03-09 16:59:28,565 INFO    SenderThread:464926 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-03-09 16:59:28,565 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,565 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-03-09 16:59:28,565 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 6
+2024-03-09 16:59:28,565 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,565 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 6
+2024-03-09 16:59:28,565 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,565 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-03-09 16:59:28,565 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 7
+2024-03-09 16:59:28,565 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: status_report
+2024-03-09 16:59:28,565 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:28,565 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 7
+2024-03-09 16:59:28,566 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:28,566 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-03-09 16:59:28,666 INFO    Thread-12 :464926 [dir_watcher.py:_on_file_created():271] file/dir created: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/wandb-summary.json
+2024-03-09 16:59:29,148 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 8
+2024-03-09 16:59:29,148 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:29,148 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 8
+2024-03-09 16:59:29,149 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:29,149 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-03-09 16:59:29,149 INFO    SenderThread:464926 [job_builder.py:build():298] Attempting to build job artifact
+2024-03-09 16:59:29,149 INFO    SenderThread:464926 [job_builder.py:_get_source_type():428] is repo sourced job
+2024-03-09 16:59:29,161 INFO    SenderThread:464926 [job_builder.py:build():404] adding wandb-job metadata file
+2024-03-09 16:59:29,166 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 9
+2024-03-09 16:59:29,167 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:29,167 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 9
+2024-03-09 16:59:29,167 DEBUG   SenderThread:464926 [sender.py:send():378] send: artifact
+2024-03-09 16:59:29,482 INFO    SenderThread:464926 [sender.py:send_artifact():1443] sent artifact job-git_github.com_DylanJamesZapzalka_eecs-545-project.git_fine-tune-phi-qlora-dro.py - {'id': 'QXJ0aWZhY3Q6NzQ5MjM4NTE1', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NzIzODYwMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzQ5MjM4NTE1', 'versionIndex': 0}}}
+2024-03-09 16:59:29,482 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:29,482 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-03-09 16:59:29,482 INFO    SenderThread:464926 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-03-09 16:59:29,554 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:29,667 INFO    SenderThread:464926 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:29,667 INFO    SenderThread:464926 [dir_watcher.py:finish():388] scan: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files
+2024-03-09 16:59:29,667 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log output.log
+2024-03-09 16:59:29,667 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/wandb-summary.json wandb-summary.json
+2024-03-09 16:59:29,667 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/wandb-metadata.json wandb-metadata.json
+2024-03-09 16:59:29,668 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/config.yaml config.yaml
+2024-03-09 16:59:29,668 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/requirements.txt requirements.txt
+2024-03-09 16:59:29,670 INFO    SenderThread:464926 [dir_watcher.py:finish():402] scan save: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/conda-environment.yaml conda-environment.yaml
+2024-03-09 16:59:29,671 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 10
+2024-03-09 16:59:29,671 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:29,672 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:29,672 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 10
+2024-03-09 16:59:29,673 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:29,673 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-03-09 16:59:29,673 INFO    SenderThread:464926 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-09 16:59:29,897 INFO    wandb-upload_0:464926 [upload_job.py:push():131] Uploaded file /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/output.log
+2024-03-09 16:59:30,284 INFO    wandb-upload_4:464926 [upload_job.py:push():131] Uploaded file /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/conda-environment.yaml
+2024-03-09 16:59:30,318 INFO    wandb-upload_2:464926 [upload_job.py:push():131] Uploaded file /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/config.yaml
+2024-03-09 16:59:30,555 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:30,556 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:31,402 INFO    wandb-upload_3:464926 [upload_job.py:push():131] Uploaded file /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/requirements.txt
+2024-03-09 16:59:31,556 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:31,557 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:32,557 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:32,557 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:33,262 INFO    wandb-upload_1:464926 [upload_job.py:push():131] Uploaded file /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/files/wandb-summary.json
+2024-03-09 16:59:33,462 INFO    Thread-11 (_thread_body):464926 [sender.py:transition_state():613] send defer: 11
+2024-03-09 16:59:33,462 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:33,462 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 11
+2024-03-09 16:59:33,463 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:33,463 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-03-09 16:59:33,463 INFO    SenderThread:464926 [file_pusher.py:join():178] waiting for file pusher
+2024-03-09 16:59:33,463 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 12
+2024-03-09 16:59:33,463 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:33,463 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 12
+2024-03-09 16:59:33,463 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:33,463 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-03-09 16:59:33,464 INFO    SenderThread:464926 [file_stream.py:finish():595] file stream finish called
+2024-03-09 16:59:33,558 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:37,630 INFO    SenderThread:464926 [file_stream.py:finish():599] file stream finish is done
+2024-03-09 16:59:37,630 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 13
+2024-03-09 16:59:37,631 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:37,631 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:37,631 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 13
+2024-03-09 16:59:37,631 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:37,631 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-03-09 16:59:37,631 INFO    SenderThread:464926 [sender.py:transition_state():613] send defer: 14
+2024-03-09 16:59:37,631 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: defer
+2024-03-09 16:59:37,631 INFO    HandlerThread:464926 [handler.py:handle_request_defer():172] handle defer: 14
+2024-03-09 16:59:37,631 DEBUG   SenderThread:464926 [sender.py:send():378] send: final
+2024-03-09 16:59:37,631 DEBUG   SenderThread:464926 [sender.py:send():378] send: footer
+2024-03-09 16:59:37,631 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: defer
+2024-03-09 16:59:37,631 INFO    SenderThread:464926 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-03-09 16:59:37,632 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:37,632 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:37,632 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-09 16:59:37,632 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: server_info
+2024-03-09 16:59:37,632 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: poll_exit
+2024-03-09 16:59:37,632 DEBUG   SenderThread:464926 [sender.py:send_request():405] send_request: server_info
+2024-03-09 16:59:37,633 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: get_summary
+2024-03-09 16:59:37,634 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: sampled_history
+2024-03-09 16:59:37,634 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-09 16:59:37,634 DEBUG   HandlerThread:464926 [handler.py:handle_request():146] handle_request: job_info
+2024-03-09 16:59:37,868 WARNING StreamThr :464926 [internal.py:is_dead():414] Internal process exiting, parent pid 464788 disappeared
+2024-03-09 16:59:37,868 ERROR   StreamThr :464926 [internal.py:wandb_internal():152] Internal process shutdown.
+2024-03-09 16:59:38,634 INFO    HandlerThread:464926 [handler.py:finish():869] shutting down handler
+2024-03-09 16:59:38,635 INFO    WriterThread:464926 [datastore.py:close():296] close: /home/dylanz/group_project/eecs-545-project/wandb/run-20240309_165848-zfvjgssd/run-zfvjgssd.wandb
+2024-03-09 16:59:38,635 INFO    SenderThread:464926 [sender.py:finish():1521] shutting down sender
+2024-03-09 16:59:38,635 INFO    SenderThread:464926 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-09 16:59:38,635 INFO    SenderThread:464926 [file_pusher.py:join():178] waiting for file pusher

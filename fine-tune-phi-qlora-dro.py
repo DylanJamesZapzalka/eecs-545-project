@@ -1,147 +1,84 @@
-# Importing packages
-import os
-import gc
-import torch
-import transformers
+'''
+Script used for training the Phi-2 model with DRO.
+QLora is used to reduce memory consumption.
+This script was created with the help of many medium articles:
+    https://kaitchup.substack.com/p/phi-2-a-small-model-easy-to-fine
+    https://towardsdatascience.com/optimizing-small-language-models-on-a-free-t4-gpu-008c37700d57
+    https://medium.com/@prasadmahamulkar/fine-tuning-phi-2-a-step-by-step-guide-e672e7f1d009
+'''
+
+from datasets import Dataset
+from peft import LoraConfig, prepare_model_for_kbit_training
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, BitsAndBytesConfig
-from datasets import load_dataset
-from peft import LoraConfig, PeftModel, get_peft_model, prepare_model_for_kbit_training, AutoPeftModelForCausalLM
 from trl import DPOTrainer
-import bitsandbytes as bnb
-from trl import SFTTrainer
+import json
 
 
-# This script is based off of the following two articles:
-# https://kaitchup.substack.com/p/phi-2-a-small-model-easy-to-fine
-# https://towardsdatascience.com/optimizing-small-language-models-on-a-free-t4-gpu-008c37700d57
-# Very efficient way of training phi-2 with qlora. Only uses like 6 GB of memory.
+PHI_2_MODEL_ID = 'microsoft/phi-2'
+FINAL_MODEL_NAME = 'trained-phi-2-segmentation'
 
 
-
-
-
-base_model_id = "microsoft/phi-2"
-
-#Load the tokenizer
-tokenizer = AutoTokenizer.from_pretrained(base_model_id, add_eos_token=True, use_fast=True)
+# Load the Phi-2 tokenizer and define how the tokens should be padded
+tokenizer = AutoTokenizer.from_pretrained(PHI_2_MODEL_ID,
+                                          add_eos_token=True,
+                                          use_fast=True)
 tokenizer.padding_side = 'right'
 tokenizer.pad_token = tokenizer.eos_token
 
 
+# Json data is in an incorrect form -- need to switch "rows" and "columns"
+json_file = open('/home/dylanz/group_project/eecs-545-project/datasets/code_summary_dataset.json')
+json_data = json.load(json_file)
+data_list = []
+for i in range(len(json_data['prompt'])):
+    sample = {}
+    sample['prompt'] = json_data['prompt'][i]
+    sample['chosen'] = json_data['chosen'][i]
+    sample['rejected'] = json_data['rejected'][i]
+    data_list.append(sample)
+json_file.close()
 
-# Helper function to format the dataset
-def chatml_format(example):
-    # Formatting system response
-    if len(example['system']) > 0:
-        message = {"role": "system", "content": example['system']}
-        system = tokenizer.apply_chat_template([message], tokenize=False)
-    else:
-        system = ""
-
-    # Formatting user instruction
-    message = {"role": "user", "content": example['question']}
-    prompt = tokenizer.apply_chat_template([message], tokenize=False, add_generation_prompt=True)
-
-    # Formatting the chosen answer
-    chosen = example['chosen'] + "\n"
-
-    # Formatting the rejected answer
-    rejected = example['rejected'] + "\n"
-
-    return {
-        "prompt": system + prompt,
-        "chosen": chosen,
-        "rejected": rejected,
-    }
-
-# Loading the dataset
-dataset = load_dataset("Intel/orca_dpo_pairs")['train']
-
-# Saving original columns for removal
-original_columns = dataset.column_names
-
-# Applying formatting to the dataset
-dataset = dataset.map(
-    chatml_format,
-    remove_columns=original_columns
-)
+# Load the transformed dataset
+dataset = Dataset.from_list(data_list)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-compute_dtype = getattr(torch, "bfloat16")
+# Load the model with 4bit quauntization
 bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=compute_dtype,
+        bnb_4bit_compute_dtype='bfloat16',
+        bnb_4bit_quant_type='nf4',
         bnb_4bit_use_double_quant=True,
+        load_in_4bit=True
 )
 model = AutoModelForCausalLM.from_pretrained(
-          base_model_id, trust_remote_code=True, quantization_config=bnb_config, device_map={"": 0}, torch_dtype="auto", attn_implementation="flash_attention_2"
+          PHI_2_MODEL_ID, 
+          quantization_config=bnb_config,
+          trust_remote_code=True
 )
-
 model = prepare_model_for_kbit_training(model)
 
+
+# Define the QLORA settings
 peft_config = LoraConfig(
         lora_alpha=16,
-        lora_dropout=0.05,
-        r=16,
+        lora_dropout=0.1,
+        r=64,
         bias="none",
         task_type="CAUSAL_LM",
         target_modules= ["q_proj","k_proj","v_proj","fc2","fc1"]
 )
 
+# Define the training arguments
 training_arguments = TrainingArguments(
-        output_dir="./phi2-results2",
-        evaluation_strategy="steps",
-        do_eval=True,
+        output_dir='./phi-2-training-results',
         per_device_train_batch_size=1,
-        gradient_accumulation_steps=12,
-        per_device_eval_batch_size=1,
-        log_level="debug",
-        save_steps=100,
-        logging_steps=25, 
         learning_rate=1e-4,
-        eval_steps=50,
         optim='paged_adamw_8bit',
         bf16=True, #change to fp16 if are using an older GPU
         num_train_epochs=3,
-        warmup_steps=100,
-        lr_scheduler_type="linear",
-)
+        report_to=None)
 
 
-# Initialize Training arguments
-training_args = TrainingArguments(
-    per_device_train_batch_size=2,
-    max_steps=100, # we set up the max_steps to 100 for demo purpose
-    gradient_accumulation_steps=4,
-    gradient_checkpointing=True,
-    learning_rate=5e-5,
-    lr_scheduler_type="cosine",
-    save_strategy="no",
-    logging_steps=1,
-    output_dir="phi-2-stuff",
-    optim="paged_adamw_32bit",
-    warmup_steps=5,
-    remove_unused_columns=False,
-)
-
-model.config.use_cache = False
-
-
-# Initialize DPO Trainer
+# Create the DPO Trainer
 dpo_trainer = DPOTrainer(
     model=model,
     train_dataset=dataset,
@@ -152,5 +89,8 @@ dpo_trainer = DPOTrainer(
     args=training_arguments,
 )
 
-# Start Fine-tuning with DPO
+# Start the process of fine-tuning Phi-2 with DPO
 dpo_trainer.train()
+
+# Save the fine-tuned model
+dpo_trainer.save_model('./trained_models/' + FINAL_MODEL_NAME)

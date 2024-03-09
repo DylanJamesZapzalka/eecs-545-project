@@ -1,0 +1,26 @@
+  0%|                                                                                                                                                       | 0/7074 [00:00<?, ?it/s]/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/torch/utils/checkpoint.py:61: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+
+
+
+
+
+
+
+  0%|▏                                                                                                                                            | 9/7074 [00:34<6:59:15,  3.56s/it]Traceback (most recent call last):
+  File "/home/dylanz/group_project/eecs-545-project/fine-tune-phi-qlora-dro.py", line 98, in <module>
+    dpo_trainer.train()
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 1537, in train
+    return inner_training_loop(
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 1854, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/transformers/trainer.py", line 2735, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/trl/trainer/dpo_trainer.py", line 1077, in compute_loss
+    loss, metrics = self.get_batch_loss_metrics(model, inputs, train_eval="train")
+  File "/home/dylanz/anaconda3/envs/pt-2.0.1/lib/python3.10/site-packages/trl/trainer/dpo_trainer.py", line 1051, in get_batch_loss_metrics
+    metrics[f"{prefix}rewards/chosen"] = chosen_rewards.mean().cpu()
+KeyboardInterrupt

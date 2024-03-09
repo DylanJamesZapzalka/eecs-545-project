@@ -1,0 +1,157 @@
+{
+    "os": "Linux-5.15.146.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-03-09T22:17:05.210929",
+    "startedAt": "2024-03-09T22:17:04.223869",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--dataset",
+        "segmentation",
+        "--model_name",
+        "test_model",
+        "--lr",
+        "1e-4",
+        "--num_epochs",
+        "3"
+    ],
+    "state": "running",
+    "program": "/home/dylanz/group_project/eecs-545-project/fine-tune-phi-qlora-dpo.py",
+    "codePathLocal": "fine-tune-phi-qlora-dpo.py",
+    "codePath": "fine-tune-phi-qlora-dpo.py",
+    "git": {
+        "remote": "git@github.com:DylanJamesZapzalka/eecs-545-project.git",
+        "commit": "4d354a6aa201ccd68bb1591e50f285bfe662a01b"
+    },
+    "email": "dylanjameszapzalka@hotmail.com",
+    "root": "/home/dylanz/group_project/eecs-545-project",
+    "host": "DylanPC",
+    "username": "dylanz",
+    "executable": "/home/dylanz/anaconda3/envs/pt-2.0.1/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 3494.3969999999986,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3494.397,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 549.3624496459961
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Ti",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.494583129882812
+    }
+}

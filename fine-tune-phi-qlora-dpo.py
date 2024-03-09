@@ -12,10 +12,36 @@ from peft import LoraConfig, prepare_model_for_kbit_training
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, BitsAndBytesConfig
 from trl import DPOTrainer
 import json
+import argparse
 
 
 PHI_2_MODEL_ID = 'microsoft/phi-2'
-FINAL_MODEL_NAME = 'trained-phi-2-segmentation'
+
+
+# Generate command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('--dataset',
+                    type=str,
+                    help='Dataset to use -- can be \"segmentation\" or \"generation\"')
+parser.add_argument('--model_name',
+                    type=str,
+                    help='Learning rate to use.')
+parser.add_argument('--lr',
+                    type=float,
+                    default=1e-4,
+                    help='Learning rate to use.')
+parser.add_argument('--num_epochs',
+                    type=int,
+                    default=3,
+                    help='Number of epochs to train for.')
+
+# Parse command line arguments
+args = parser.parse_args()
+dataset = args.dataset
+model_name = args.model_name
+lr = args.lr
+num_epochs = args.num_epochs
+
 
 
 # Load the Phi-2 tokenizer and define how the tokens should be padded
@@ -27,7 +53,13 @@ tokenizer.pad_token = tokenizer.eos_token
 
 
 # Json data is in an incorrect form -- need to switch "rows" and "columns"
-json_file = open('/home/dylanz/group_project/eecs-545-project/datasets/code_summary_dataset.json')
+if dataset == 'segmentation':
+    json_file = open('./datasets/code_summary_dataset.json')
+elif dataset == 'generation':
+    json_file = open('./datasets/code_summary_dataset.json')
+else:
+    raise ValueError('--dataset flag must be \"segmentation\" or \"generation\"')
+
 json_data = json.load(json_file)
 data_list = []
 for i in range(len(json_data['prompt'])):
@@ -71,10 +103,10 @@ peft_config = LoraConfig(
 training_arguments = TrainingArguments(
         output_dir='./phi-2-training-results',
         per_device_train_batch_size=1,
-        learning_rate=1e-4,
+        learning_rate=lr,
         optim='paged_adamw_8bit',
         bf16=True, #change to fp16 if are using an older GPU
-        num_train_epochs=3,
+        num_train_epochs=num_epochs,
         report_to=None)
 
 
@@ -93,4 +125,4 @@ dpo_trainer = DPOTrainer(
 dpo_trainer.train()
 
 # Save the fine-tuned model
-dpo_trainer.save_model('./trained_models/' + FINAL_MODEL_NAME)
+dpo_trainer.save_model('./trained_models/' + model_name)

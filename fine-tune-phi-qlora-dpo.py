@@ -14,6 +14,8 @@ from trl import DPOTrainer
 import json
 import argparse
 import tqdm
+import gc
+import torch
 
 
 PHI_2_MODEL_ID = 'microsoft/phi-2'
@@ -58,12 +60,12 @@ tokenizer.pad_token = tokenizer.eos_token
 
 
 # Json data is in an incorrect form -- need to switch "rows" and "columns"
-if dataset == 'segmentation':
+if dataset == 'summarization':
     json_file = open('./datasets/code_summary_dataset.json')
 elif dataset == 'generation':
     json_file = open('./datasets/code_solution_dataset.json')
 else:
-    raise ValueError('--dataset flag must be \"segmentation\" or \"generation\"')
+    raise ValueError('--dataset flag must be \"summarization\" or \"generation\"')
 
 json_data = json.load(json_file)
 data_list = []
@@ -144,22 +146,22 @@ elif is_online:
         if epoch != 0:
             
             # Load the latest tokenizer/model
-            tokenizer = AutoTokenizer.from_pretrained('./trained_models/' + model_name + '_' + str(epoch-1)).to('cuda')
-            model = AutoModelForCausalLM.from_pretrained('./trained_models/' + model_name + '_' + str(epoch-1), quantization_config=bnb_config).to('cuda')
+            tokenizer = AutoTokenizer.from_pretrained('./trained_models/' + model_name + '_' + str(epoch-1))
+            model = AutoModelForCausalLM.from_pretrained('./trained_models/' + model_name + '_' + str(epoch-1), quantization_config=bnb_config)
 
             # Load original dataset
-            if dataset == 'segmentation':
+            if dataset == 'summarization':
                 json_file = open('./datasets/code_summary_dataset.json')
             elif dataset == 'generation':
                 json_file = open('./datasets/code_solution_dataset.json')
             else:
-                raise ValueError('--dataset flag must be \"segmentation\" or \"generation\"')
+                raise ValueError('--dataset flag must be \"summarization\" or \"generation\"')
 
             # Create new dataset for current epoch using latest model
-            json_data = json.load(len(json_data['prompt']))
+            json_data = json.load(json_file)
             data_list = []
             print("Generating training set for epoch " + str(epoch))
-            for i in tqdm.tqdm(range(10), position=0, leave=True):
+            for i in tqdm.tqdm(range(len(json_data['prompt'])), position=0, leave=True):
                 sample = {}
                 sample['prompt'] = json_data['prompt'][i]
                 sample['chosen'] = json_data['chosen'][i]
@@ -201,3 +203,12 @@ elif is_online:
 
         # Save the fine-tuned model
         dpo_trainer.save_model('./trained_models/' + model_name + '_' + str(epoch))
+
+        # Free memory
+        torch._C._cuda_clearCublasWorkspaces()
+        torch._dynamo.reset()
+        del tokenizer
+        del model
+        del dpo_trainer
+        gc.collect()
+        torch.cuda.empty_cache() 

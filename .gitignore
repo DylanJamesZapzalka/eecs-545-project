@@ -1,0 +1,3 @@
+wandb/
+phi-2-training-results/
+human_eval.py
